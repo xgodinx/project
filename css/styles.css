@@ -592,7 +592,7 @@ a[href$="com"] {
 }
 /*---------contacts-------------------------------------------------------*/
 .contacts {
-  padding: 15px 0;
+  padding: 35px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -603,9 +603,9 @@ a[href$="com"] {
   background-color: #bca99d;
   
 }
-@media (max-width: 1024px){
+@media (max-width: 480px){
   .contacts {
-    
+    padding: 25px 0;
   }
 }
 .contacts__title {
