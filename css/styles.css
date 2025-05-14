@@ -48,7 +48,7 @@ body {
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05), 0 0 10px rgba(0, 0, 0, 0.3);
   position: relative;
   transition-property: box-shadow, max-width, text-shadow;
-  transition-duration: 1s, 0.6s, 0.7s;
+  transition-duration: 1s, 0.5s, 0.7s;
   transition-delay: 0.5s, 0.2s, 0.2s;
   transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); 
   /* transition: box-shadow 1s ease-in 0.5s, max-width 0.6s ease-in-out 0.2s, text-shadow 0.7s  ease-out 0.2s; */
@@ -93,24 +93,39 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  
 }
+
 @media (max-width: 480px){
   .container__menu ul {
     display: flex;
     justify-content: space-between;
-    /* flex-direction: column; */
-    
   }
 }
 .container__menu ul li {
   padding: 10px 0;
   list-style: none;
+  position: relative;
+  top: 0;
 }
-@media (max-width: 480px){
+
+@media (max-width: 480px) and (max-width: 768px) {
   .container__menu ul li{
     padding: 3px;
   }
 }
+@media (min-width: 767px){
+  .container__menu ul li:hover{
+    top:2px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+/* .links{
+  position: relative;
+  top: 0;
+}
+ */
 .container__menu .links {
   background: url(/img/icon.png) left 5px  no-repeat;
   color: azure;
@@ -120,79 +135,264 @@ body {
 
 @media (max-width: 480px){
   .container__menu .links{
-    font-size: 16px;
+    font-size: 18px;
     background: url(/img/icon.png) left 5px / 10px 10px no-repeat;
     padding: 0 0 0 15px;
   }
 }
 /*---------index-------------------------------------------------------*/
-.circle{
+
+
+
+
+.circle {
   display: flex;
   justify-content: space-between;
-  margin: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.1);   
-  border-radius: 12px;                
-  padding: 16px;                      
-  background-color: #ecdd9a;  
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
-  position: relative;
-}
-.circle:hover *{
-  animation-play-state: paused;
-}
-
-.circle__item{
   
-  width: 70px;
-  height: 70px;
-  background-color: #add6f5;
-  border-radius: 50%;
-  position: relative;
+  max-width: 100%;
+  background-color: tomato;
+  border: 2px solid;
+  border-radius: 10px;
+  margin: 30px auto;
+  padding: 25px;
   animation-name: circle;
   animation-duration: 1s;
-  animation-timing-function: linear;
+  animation-timing-function: ease-in;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  animation-delay: 0.5s;
 }
+
 @keyframes circle{
   0%{
-    left: 0;
+    max-width: 60%;
+    background: #ccc8c8;
+    border: 4px solid;
+    border-radius: 10px;
+    box-shadow: 5px 4px 5px rgb(97, 44, 84);
   }
-  50%{
-   border-radius: 30%;
-  }
-  100%{
-    left: 40%;
-   
+  100%{    
+    max-width: 100%;
+    background: #6b6969;
+    border: 4px solid;
+    border-radius: 16px;
+    box-shadow: 10px 8px 10px rgb(97, 44, 84);
   }
 }
-
-.circle__item_2{
-   width: 70px;
+.circle *{
+  width: 70px;
   height: 70px;
-  background-color: #add6f5;
   border-radius: 50%;
+  background-color: violet;
   position: relative;
-  animation-name: circle2;
-  animation-duration: 1s;
-  animation-timing-function: linear;
+  
+}
+
+
+.circle__item_1 {
+  animation-name: circle_1;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  animation-delay: 0.5s;
+  animation-play-state: running;
+}
+.circle__item_2 {
+  animation-name: circle_2;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-@keyframes circle2{
-    0%{
-    right: 0;
-  }
-  50%{
-   border-radius: 30%;
+
+@keyframes circle_1{
+  0%{
+    left: 0%;
+    width: 30px;
+    height: 30px;
   }
   100%{
-    right: 40%;
+    left: 32%;
+    width: 30px;
+    height: 30px;
   }
 }
+
+@keyframes circle_2{
+  0%{
+    right: 0%;
+    width: 30px;
+    height: 30px;
+  }
+  100%{
+    right: 32%;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+
+@media (min-width:480px){
+  @keyframes circle_1{
+  0%{
+    left: 0%;
+    width: 40px;
+    height: 40px;
+  }
+  100%{
+    left: 32%;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@keyframes circle_2{
+  0%{
+    right: 0%;
+    width: 40px;
+    height: 40px;
+  }
+  100%{
+    right: 32%;
+    width: 40px;
+    height: 40px;
+  }
+}
+}
+
+
+@media (min-width:767px) {
+  @keyframes circle_1{
+  0%{
+    width: 50px;
+    height: 50px;
+    left: 0%;
+  }
+  100%{
+    width: 50px;
+    height: 50px;
+    left: 38%;
+  }
+}
+@keyframes circle_2{
+  0%{
+    width: 50px;
+    height: 50px;
+    right: 0%;
+  }
+  100%{
+    width: 50px;
+    height: 50px;
+    right: 38%;
+  }
+}
+}
+@media (min-width:1080px) {
+  @keyframes circle_1{
+  0%{
+    width: 60px;
+    height: 60px;
+    left: 0%;
+  }
+  100%{
+    width: 60px;
+    height: 60px;
+    left: 38%;
+  }
+}
+@keyframes circle_2{
+  0%{
+    width: 60px;
+    height: 60px;
+    right: 0%;
+  }
+  100%{
+    width: 60px;
+    height: 60px;
+    right: 38%;
+  }
+}
+}
+.button{
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px;
+  
+}
+@media (min-width:480px){
+  .button{
+  margin: 15px 0 30px;
+}
+}
+@media (min-width:767px){
+  .button{
+  margin: 20px 0 40px;
+}
+}
+.cta{
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  background-color: slateblue;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgb(105, 163, 190);
+  position: relative;
+  top: 0;
+  transition: top 0.1s ease-in-out 0s, box-shadow 0.2s linear 0.1s, background-color 0.6s ease-in 0s, color 0.3s ease-in 0.1s;
+  animation-name: cta;
+  animation-duration:4s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.cta:hover{
+  top: 2px;
+  box-shadow: 3px 3px 3px rgb(105, 163, 190);
+  background-color: thistle;
+  color: rgb(255, 255, 255);
+  transition: top 0.2s ease-in-out 0.2s, box-shadow 0s linear 0s, background-color 0.8s ease-in 0s, color 0.6s ease-out 0.2s;
+  animation-name: cta;
+  animation-play-state: paused;
+}
+@media (min-width:480px){
+  .cta{
+  font-size: 22px;
+  padding: 20px 45px;
+  }
+}
+@media (min-width:767px){
+  .cta{
+  font-size: 25px;
+  padding: 20px 60px;
+  }
+}
+
+
+@keyframes cta{
+  0%{
+    background-color: #5e5373;
+    color: #ffffff;
+    box-shadow: 3px 3px 3px rgb(105, 163, 190);
+  }
+  50%{
+    background-color: #e7a262;
+    color: rgb(38, 30, 107);
+    box-shadow: 3px 3px 3px rgb(105, 163, 190);
+  }
+  100%{
+    background-color: #4e3e69;
+    color: rgb(216, 221, 167);
+    box-shadow: 3px 3px 3px rgb(105, 163, 190);
+  }
+}
+
+
+
+
+
 
 .content {
   border: 7px groove rgb(0, 0, 0);
