@@ -484,6 +484,7 @@ a[href$=com] {
 }
 
 .last-text {
+	@extend %border;
   font-size: 20px;
   font-weight: 700;
   color: cornflowerblue;
@@ -499,9 +500,14 @@ a[href$=com] {
     letter-spacing: 3px;
   }
 }
-.last-text {
-  border: 5px black solid;
+
+%border{
+	border: 5px black solid;
 }
+
+
+
+
 
 /*---------about-------------------------------------------------------*/
 .about {
@@ -1155,6 +1161,4 @@ a[href$=com] {
   margin-bottom: 10px;
 }
 
-
-
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=styles.scss.map */
